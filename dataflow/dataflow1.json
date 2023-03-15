@@ -1,0 +1,64 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"folder": {
+			"name": "lab1"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Excel1",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_linkedservice",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "aggregate1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          {Employee ID} as string,",
+				"          {Full Name} as string,",
+				"          {Job Title} as string,",
+				"          Department as string,",
+				"          {Business Unit} as string,",
+				"          Gender as string,",
+				"          Ethnicity as string,",
+				"          Age as short,",
+				"          {Hire Date} as integer,",
+				"          {Annual Salary} as integer,",
+				"          {Bonus %} as double,",
+				"          Country as string,",
+				"          City as string",
+				"     ),",
+				"     allowSchemaDrift: false,",
+				"     validateSchema: false,",
+				"     limit: 100,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 aggregate(groupBy(Country),",
+				"     annual_salary = sum({Annual Salary})) ~> aggregate1",
+				"aggregate1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}

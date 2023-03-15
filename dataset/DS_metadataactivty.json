@@ -1,0 +1,35 @@
+{
+	"name": "DS_metadataactivty",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_metadataactivity",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "metadata1"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "lab"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

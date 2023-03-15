@@ -1,0 +1,26 @@
+{
+	"name": "DS_copyactivitydestination",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_aggregte data",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "copyactivitywildcard"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "copymerge"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

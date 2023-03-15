@@ -1,0 +1,37 @@
+{
+	"name": "DS_copyactivitysource",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_source_copyactivity",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "copyactivitywildcard"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "demo",
+				"fileSystem": "lab"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

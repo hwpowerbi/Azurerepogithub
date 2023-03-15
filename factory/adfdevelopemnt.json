@@ -1,0 +1,14 @@
+{
+	"name": "adfdevelopemnt",
+	"properties": {
+		"globalConfigurations": {
+			"PipelineBillingEnabled": "true"
+		}
+	},
+	"location": "westus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "508c7b8d-4e21-4e3c-98cf-5b541e2389fd",
+		"tenantId": "4c7fd5e8-8254-4c4d-9016-a697876182be"
+	}
+}

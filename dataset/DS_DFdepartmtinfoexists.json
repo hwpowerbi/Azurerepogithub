@@ -1,0 +1,36 @@
+{
+	"name": "DS_DFdepartmtinfoexists",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_DFexists",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "lab1"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "departmentinfo.csv",
+				"fileSystem": "lab"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Department ID",
+				"type": "String"
+			},
+			{
+				"name": "Department name",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

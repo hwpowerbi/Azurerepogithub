@@ -1,0 +1,33 @@
+{
+	"name": "DS_sourceincremental2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_incrementalloadsource",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "name",
+				"type": "varchar"
+			},
+			{
+				"name": "lastmodifiedtime",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "datasrc"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

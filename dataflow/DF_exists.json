@@ -1,0 +1,73 @@
+{
+	"name": "DF_exists",
+	"properties": {
+		"folder": {
+			"name": "lab1"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_DFempoinfoexists",
+						"type": "DatasetReference"
+					},
+					"name": "Empsource"
+				},
+				{
+					"dataset": {
+						"referenceName": "DS_DFdepartmtinfoexists",
+						"type": "DatasetReference"
+					},
+					"name": "departmntinfo"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Sinkinfo",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "exists"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          {Employee ID} as string,",
+				"          FirstName as string,",
+				"          {Department ID} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> Empsource",
+				"source(output(",
+				"          {Department ID} as string,",
+				"          {Department name} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> departmntinfo",
+				"Empsource, departmntinfo exists(Empsource@{Department ID} == departmntinfo@{Department ID},",
+				"     negate:false,",
+				"     broadcast: 'auto')~> exists",
+				"exists sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          {Employee ID} as string,",
+				"          FirstName as string,",
+				"          {Department ID} as string",
+				"     ),",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}
