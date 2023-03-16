@@ -80,7 +80,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select * from datasrc where lastmodifiedtime>'@{activity('oldwatermarklatestdate_az_sql').output.firstRow.watermarkvalue}' \r\n\r\nand \r\n\r\nlastmodifiedtime<='@{activity('latestmodifieddatelookup').output.firstRow.newwatermarkvalue}' ",
+							"value": "select * from datasrc where lastmodifiedtime>'@{activity('oldwatermarklatestdate_az_sql').output.firstRow.watermarkvalue}' \n\nand \n\nlastmodifiedtime<='@{activity('newlatestmodifieddatelookup').output.firstRow.newwatermarkvalue}' ",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
