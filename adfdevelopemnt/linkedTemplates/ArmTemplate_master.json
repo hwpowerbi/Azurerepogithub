@@ -1,0 +1,257 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfdevelopemnt"
+		},
+		"AzureBlobStorage2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage2'"
+		},
+		"LS_DF_sampledata_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_DF_sampledata'"
+		},
+		"LS_DFexists_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_DFexists'"
+		},
+		"LS_SQL_metadata_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_SQL_metadata'"
+		},
+		"LS_aggregte data_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_aggregte data'"
+		},
+		"LS_employeedata_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_employeedata'"
+		},
+		"LS_incrementalloadsource_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_incrementalloadsource'"
+		},
+		"LS_metadata_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_metadata'"
+		},
+		"LS_metadataactivity_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_metadataactivity'"
+		},
+		"LS_sourceGetmetadata_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_sourceGetmetadata'"
+		},
+		"LS_source_copyactivity_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_source_copyactivity'"
+		},
+		"LS_sourceparameterized_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_sourceparameterized'"
+		},
+		"LSsouceparametrz_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LSsouceparametrz'"
+		},
+		"AzureBlobStorage1_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "strgacclabazureblobstorage"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://samplkeyvaults.vault.azure.net/"
+		},
+		"LS_DF_sampledata_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://strgaccsamplefile.dfs.core.windows.net/"
+		},
+		"LS_DFexists_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://strgacclabazure.dfs.core.windows.net/"
+		},
+		"LS_aggregte data_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://strgaccsamplefile.dfs.core.windows.net/"
+		},
+		"LS_employeedata_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://strgaccsamplefile.dfs.core.windows.net/"
+		},
+		"LS_metadata_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://strgacclabazure.dfs.core.windows.net/"
+		},
+		"LS_metadataactivity_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://strgacclabazure.dfs.core.windows.net/"
+		},
+		"LS_sourceGetmetadata_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://strgacclabazure.dfs.core.windows.net/"
+		},
+		"LS_source_copyactivity_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://strgacclabazure.dfs.core.windows.net/"
+		},
+		"LS_sourceparameterized_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://strgacclabazure.dfs.core.windows.net/"
+		},
+		"LSsouceparametrz_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://strgacclabazure.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adfdevelopemnt_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage2_connectionString": {
+						"value": "[parameters('AzureBlobStorage2_connectionString')]"
+					},
+					"LS_DF_sampledata_accountKey": {
+						"value": "[parameters('LS_DF_sampledata_accountKey')]"
+					},
+					"LS_DFexists_accountKey": {
+						"value": "[parameters('LS_DFexists_accountKey')]"
+					},
+					"LS_SQL_metadata_connectionString": {
+						"value": "[parameters('LS_SQL_metadata_connectionString')]"
+					},
+					"LS_aggregte data_accountKey": {
+						"value": "[parameters('LS_aggregte data_accountKey')]"
+					},
+					"LS_employeedata_accountKey": {
+						"value": "[parameters('LS_employeedata_accountKey')]"
+					},
+					"LS_incrementalloadsource_connectionString": {
+						"value": "[parameters('LS_incrementalloadsource_connectionString')]"
+					},
+					"LS_metadata_accountKey": {
+						"value": "[parameters('LS_metadata_accountKey')]"
+					},
+					"LS_metadataactivity_accountKey": {
+						"value": "[parameters('LS_metadataactivity_accountKey')]"
+					},
+					"LS_sourceGetmetadata_accountKey": {
+						"value": "[parameters('LS_sourceGetmetadata_accountKey')]"
+					},
+					"LS_source_copyactivity_accountKey": {
+						"value": "[parameters('LS_source_copyactivity_accountKey')]"
+					},
+					"LS_sourceparameterized_accountKey": {
+						"value": "[parameters('LS_sourceparameterized_accountKey')]"
+					},
+					"LSsouceparametrz_accountKey": {
+						"value": "[parameters('LSsouceparametrz_accountKey')]"
+					},
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+					},
+					"LS_DF_sampledata_properties_typeProperties_url": {
+						"value": "[parameters('LS_DF_sampledata_properties_typeProperties_url')]"
+					},
+					"LS_DFexists_properties_typeProperties_url": {
+						"value": "[parameters('LS_DFexists_properties_typeProperties_url')]"
+					},
+					"LS_aggregte data_properties_typeProperties_url": {
+						"value": "[parameters('LS_aggregte data_properties_typeProperties_url')]"
+					},
+					"LS_employeedata_properties_typeProperties_url": {
+						"value": "[parameters('LS_employeedata_properties_typeProperties_url')]"
+					},
+					"LS_metadata_properties_typeProperties_url": {
+						"value": "[parameters('LS_metadata_properties_typeProperties_url')]"
+					},
+					"LS_metadataactivity_properties_typeProperties_url": {
+						"value": "[parameters('LS_metadataactivity_properties_typeProperties_url')]"
+					},
+					"LS_sourceGetmetadata_properties_typeProperties_url": {
+						"value": "[parameters('LS_sourceGetmetadata_properties_typeProperties_url')]"
+					},
+					"LS_source_copyactivity_properties_typeProperties_url": {
+						"value": "[parameters('LS_source_copyactivity_properties_typeProperties_url')]"
+					},
+					"LS_sourceparameterized_properties_typeProperties_url": {
+						"value": "[parameters('LS_sourceparameterized_properties_typeProperties_url')]"
+					},
+					"LSsouceparametrz_properties_typeProperties_url": {
+						"value": "[parameters('LSsouceparametrz_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "adfdevelopemnt_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage1_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('AzureBlobStorage1_properties_typeProperties_connectionString_secretName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfdevelopemnt_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "adfdevelopemnt_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfdevelopemnt_ArmTemplate_1')]"
+			]
+		}
+	]
+}

@@ -1,0 +1,84 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfdevelopemnt"
+		},
+		"AzureBlobStorage2_connectionString": {
+			"value": ""
+		},
+		"LS_DF_sampledata_accountKey": {
+			"value": ""
+		},
+		"LS_DFexists_accountKey": {
+			"value": ""
+		},
+		"LS_SQL_metadata_connectionString": {
+			"value": ""
+		},
+		"LS_aggregte data_accountKey": {
+			"value": ""
+		},
+		"LS_employeedata_accountKey": {
+			"value": ""
+		},
+		"LS_incrementalloadsource_connectionString": {
+			"value": ""
+		},
+		"LS_metadata_accountKey": {
+			"value": ""
+		},
+		"LS_metadataactivity_accountKey": {
+			"value": ""
+		},
+		"LS_sourceGetmetadata_accountKey": {
+			"value": ""
+		},
+		"LS_source_copyactivity_accountKey": {
+			"value": ""
+		},
+		"LS_sourceparameterized_accountKey": {
+			"value": ""
+		},
+		"LSsouceparametrz_accountKey": {
+			"value": ""
+		},
+		"AzureBlobStorage1_properties_typeProperties_connectionString_secretName": {
+			"value": "strgacclabazureblobstorage"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://samplkeyvaults.vault.azure.net/"
+		},
+		"LS_DF_sampledata_properties_typeProperties_url": {
+			"value": "https://strgaccsamplefile.dfs.core.windows.net/"
+		},
+		"LS_DFexists_properties_typeProperties_url": {
+			"value": "https://strgacclabazure.dfs.core.windows.net/"
+		},
+		"LS_aggregte data_properties_typeProperties_url": {
+			"value": "https://strgaccsamplefile.dfs.core.windows.net/"
+		},
+		"LS_employeedata_properties_typeProperties_url": {
+			"value": "https://strgaccsamplefile.dfs.core.windows.net/"
+		},
+		"LS_metadata_properties_typeProperties_url": {
+			"value": "https://strgacclabazure.dfs.core.windows.net/"
+		},
+		"LS_metadataactivity_properties_typeProperties_url": {
+			"value": "https://strgacclabazure.dfs.core.windows.net/"
+		},
+		"LS_sourceGetmetadata_properties_typeProperties_url": {
+			"value": "https://strgacclabazure.dfs.core.windows.net/"
+		},
+		"LS_source_copyactivity_properties_typeProperties_url": {
+			"value": "https://strgacclabazure.dfs.core.windows.net/"
+		},
+		"LS_sourceparameterized_properties_typeProperties_url": {
+			"value": "https://strgacclabazure.dfs.core.windows.net/"
+		},
+		"LSsouceparametrz_properties_typeProperties_url": {
+			"value": "https://strgacclabazure.dfs.core.windows.net/"
+		}
+	}
+}
