@@ -531,7 +531,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileName": "huh.clv",
+						"fileName": "Empinfo.csv",
 						"fileSystem": "copyactivity1"
 					},
 					"columnDelimiter": ",",
