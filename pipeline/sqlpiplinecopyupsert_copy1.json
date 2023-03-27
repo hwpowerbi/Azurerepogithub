@@ -56,17 +56,17 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_source_sql_copyupsert",
+						"referenceName": "DS_copyactivitydestination",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_source_sql_copyupsert",
+						"referenceName": "DelimitedText2",
 						"type": "DatasetReference",
 						"parameters": {
-							"datasetparam": {
-								"value": "@activity('Get Metadata1').output.lastModified",
+							"ds_paramfilename": {
+								"value": "@formatDateTime(activity('Get Metadata1').output.lastModified,'yyyy-MM-ddTHHmmss')",
 								"type": "Expression"
 							}
 						}

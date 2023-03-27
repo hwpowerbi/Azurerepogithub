@@ -5,20 +5,11 @@
 			"referenceName": "LS_Sqlcopyacitivitysource",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"datasetparam": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": {
-					"value": "@dataset().datasetparam",
-					"type": "Expression"
-				},
 				"fileSystem": "sqllab"
 			},
 			"columnDelimiter": "\t",
