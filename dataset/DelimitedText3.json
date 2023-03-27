@@ -5,11 +5,20 @@
 			"referenceName": "AzureDataLakeStorage3",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"pfilename": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().pfilename",
+					"type": "Expression"
+				},
 				"fileSystem": "dflab1"
 			},
 			"columnDelimiter": ",",

@@ -133,7 +133,13 @@
 							"outputs": [
 								{
 									"referenceName": "DelimitedText3",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"pfilename": {
+											"value": "@concat(item().name,formatdatetime(utcnow(),'yyyymmdd'))",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
