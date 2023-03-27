@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "DS_sourcefoldercopy",
+						"referenceName": "DS_sourcefoldermetadata_copy1",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
@@ -68,7 +68,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('emp').output.name",
+						"value": "@activity('emp').output.value",
 						"type": "Expression"
 					},
 					"isSequential": true,
