@@ -5,6 +5,11 @@
 			"referenceName": "LS_aggregte data",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"paramp": {
+				"type": "string"
+			}
+		},
 		"folder": {
 			"name": "copyactivitywildcard"
 		},
@@ -13,7 +18,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "STUDENTINFO.txt",
+				"fileName": {
+					"value": "@dataset().paramp",
+					"type": "Expression"
+				},
 				"fileSystem": "sqllab"
 			},
 			"columnDelimiter": ",",
