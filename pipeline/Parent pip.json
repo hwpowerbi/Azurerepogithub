@@ -1,0 +1,47 @@
+{
+	"name": "Parent pip",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "childpipeline",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Execute Pipeline1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "GlobalParam",
+					"value": {
+						"value": "@activity('Execute Pipeline1').output.pipelineReturnValue.childp",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"GlobalParam": {
+				"type": "String",
+				"defaultValue": "imglobl"
+			}
+		},
+		"annotations": []
+	}
+}
