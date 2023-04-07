@@ -14,7 +14,7 @@
 							"key": "childp",
 							"value": {
 								"type": "String",
-								"content": "I'm child pipeline"
+								"content": ""
 							}
 						}
 					],
